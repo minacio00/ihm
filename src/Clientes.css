@@ -1,0 +1,7 @@
+.tabela{
+    display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ min-width:100vw;
+   padding: 25px;
+}
