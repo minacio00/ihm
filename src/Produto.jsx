@@ -7,10 +7,10 @@ import {
 import { useEffect, useState } from 'react';
 
 
-export default function () {
-    document.title = "Cadastro";
+export default function (props) {
+    document.title = "Cadastro de Produto";
 
-
+    console.log(props.productType);
     return (
         <>
             <div className="barra">
@@ -36,35 +36,50 @@ export default function () {
             <div className="formulario">
                 <Form>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="name@exemplo.com" />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Nome</Form.Label>
                         <Form.Control type="text" placeholder="nome" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Rg</Form.Label>
-                        <Form.Control type="text" placeholder="Rg" />
+                        <Form.Label>Preço</Form.Label>
+                        <Form.Control type="number" min="1" step="any" placeholder="Preço" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Celular</Form.Label>
-                        <Form.Control type="tel" placeholder="Celular" pattern="[0-9]{2}[0-9]{9}" />
-                        <Form.Text>ddd+telefone ex:62999999999</Form.Text>
+                        <Form.Label>Quantidade</Form.Label>
+                        <Form.Control type="number" placeholder="Quantidade" min="1" />
                     </Form.Group>
+                    {props.productType == "HARDWARE" ?
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Método de montagem</Form.Label>
+                            <Form.Control type="text" placeholder="Método de montagem" />
+                        </Form.Group> : null
+                    }
+                    {props.productType == "SOFTWARE" ?
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Versão</Form.Label>
+                            <Form.Control type="text" placeholder="Versão" />
+                        </Form.Group>
+                        : null
+                    }
+                    {props.productType == "SOFTWARE" ?
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Linguagem</Form.Label>
+                            <Form.Control type="text" placeholder="Linguagem" />
+                        </Form.Group> : null
+                    }
+                    {props.productType == "SOFTWARE" ?
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Tipo</Form.Label>
+                            <Form.Control type="text" placeholder="Tipo" />
+                        </Form.Group> : null
+                    }
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Endereço</Form.Label>
-                        <Form.Control type="text" placeholder="Rua" />
+                        <Form.Label>Descrição</Form.Label>
+                        <Form.Control as="textArea" rows={5} type="text" placeholder="Descrição" />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Senha</Form.Label>
-                        <Form.Control type="password" placeholder="Senha" />
-                    </Form.Group>
                     {/* <Link  to={{pathname: '/Cadastro'}}>Registrar-se</Link> */}
                     <Button variant="primary" type="submit">
                         Registrar-se
