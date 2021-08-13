@@ -1,11 +1,12 @@
 .formulario{
- display: flex;
- flex-wrap: wrap;
- align-items: center;
- position:absolute;
-     top: 15%;
-     left: 35%;
- flex: 1 0 120px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position:absolute;
+  top: 15%;
+  left: 35%;  
+  flex: 1 0 120px;
+  text-align: center;
 }
 form{
     min-width:25vw;
